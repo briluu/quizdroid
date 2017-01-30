@@ -29,7 +29,6 @@ public class AnswerActivity extends AppCompatActivity {
         user_option = getIntent().getStringExtra(USER_OPTION);
 
         TextView user_answer = (TextView) findViewById(R.id.userAnswer);
-        TextView answer = (TextView) findViewById(R.id.correctAnswer);
         user_answer.setText(user_option);
 
         String answersCorrectText = "You have " + correct + " out of " + total + " correct.";

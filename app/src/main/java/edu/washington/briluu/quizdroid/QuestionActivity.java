@@ -48,7 +48,7 @@ public class QuestionActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(QuestionActivity.this, LastAnswerActivity.class);
-                    intent.putExtra(TOTAL, total++);
+                    intent.putExtra(TOTAL, total);
                     intent.putExtra(NUMBER_CORRECT, correct);
                     intent.putExtra(USER_OPTION, user_option);
                     startActivity(intent);

@@ -11,7 +11,9 @@ public class LastAnswerActivity extends AppCompatActivity {
 
     public static final String TOTAL = "TOTAL";
     public static final String NUMBER_CORRECT = "NUMBER_CORRECT";
+    public static final String USER_OPTION = "USER_OPTION";
     public static int total;
+    public static String user_option;
     public static int correct;
 
     @Override
@@ -21,6 +23,10 @@ public class LastAnswerActivity extends AppCompatActivity {
 
         correct = getIntent().getIntExtra(NUMBER_CORRECT, 0);
         total = getIntent().getIntExtra(TOTAL, 0);
+        user_option = getIntent().getStringExtra(USER_OPTION);
+
+        TextView user_answer = (TextView) findViewById(R.id.userAnswer);
+        user_answer.setText(user_option);
 
         String answersCorrectText = "You have " + correct + " out of " + total + " correct. " +
                 "The quiz is now done! Click 'Finish' to go back to the menu.";
