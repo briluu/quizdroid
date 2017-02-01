@@ -1,6 +1,6 @@
 # quizdroid
 ## Stories
-## Part 2 - using fragments now
+## Part 1
 
 * As a user, when I start the app, I should see a list of different topics on which to take a quiz. (For now, these should be hard-coded to read "Math", "Physics", and "Marvel Super Heroes", as well as any additional topics you feel like adding into the mix.)  
 
@@ -14,6 +14,8 @@
 
 * As a user, when I am on the "answer" page, and it is the last question of the topic, the "Finish" button should take me back to the first topic-list page, so that I can take a new quiz.  
 
+## Part 2
+* As a developer, the "topic overview", "question" and "answer" pages should be merged into a single Activity, using Fragments to swap between the question UI and the answer UI. This means, then, that there will be only two Activities in the entire system: the list of topics at the front of the application, and the multi-use activity that serves for the topic overview, the question, and answer pages.
 
 1pt: Topic Overview uses fragment  
 1pt: Question uses fragment  
