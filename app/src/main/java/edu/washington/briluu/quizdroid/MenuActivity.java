@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 public class MenuActivity extends AppCompatActivity {
 
+    private static final String TOPIC = "TOPIC";
     private String[] topics = {"Math", "Physics", "Marvel Super Heroes"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +29,18 @@ public class MenuActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                switch(position) {
                    case 0:
-                       intent = new Intent(MenuActivity.this, MathActivity.class);
+                       intent = new Intent(MenuActivity.this, QuizActivity.class);
+                       intent.putExtra(TOPIC, topics[0]);
                        startActivity(intent);
                        break;
                    case 1:
-                       intent = new Intent(MenuActivity.this, PhysicsActivity.class);
+                       intent = new Intent(MenuActivity.this, QuizActivity.class);
+                       intent.putExtra(TOPIC, topics[1]);
                        startActivity(intent);
                        break;
                    case 2:
-                       intent = new Intent(MenuActivity.this, MarvelSuperHeroesActivity.class);
+                       intent = new Intent(MenuActivity.this, QuizActivity.class);
+                       intent.putExtra(TOPIC, topics[2]);
                        startActivity(intent);
                        break;
                }
