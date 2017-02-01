@@ -15,7 +15,7 @@
 * As a user, when I am on the "answer" page, and it is the last question of the topic, the "Finish" button should take me back to the first topic-list page, so that I can take a new quiz.  
 
 
-1pt: Topic Overview uses fragment
-1pt: Question uses fragment
-1pt: Answer uses fragment
-2pts: Two activities
+1pt: Topic Overview uses fragment  
+1pt: Question uses fragment  
+1pt: Answer uses fragment  
+2pts: Two activities  
