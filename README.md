@@ -1,6 +1,6 @@
 # quizdroid
 ## Stories
-## Part 2
+## Part 2 - using fragments now
 
 * As a user, when I start the app, I should see a list of different topics on which to take a quiz. (For now, these should be hard-coded to read "Math", "Physics", and "Marvel Super Heroes", as well as any additional topics you feel like adding into the mix.)  
 
