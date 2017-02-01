@@ -1,6 +1,6 @@
 # quizdroid
 ## Stories
-## Part 1
+## Part 2
 
 * As a user, when I start the app, I should see a list of different topics on which to take a quiz. (For now, these should be hard-coded to read "Math", "Physics", and "Marvel Super Heroes", as well as any additional topics you feel like adding into the mix.)  
 
@@ -13,3 +13,9 @@
 * As a user, when I am on the "answer" page, it should display the answer I gave, the correct answer, and tell me the total number of correct vs incorrect answers so far ("You have 5 out of 9 correct"), and display a "Next" button taking me to the next question page, or else display a "Finish" button if that is the last question in the topic.  
 
 * As a user, when I am on the "answer" page, and it is the last question of the topic, the "Finish" button should take me back to the first topic-list page, so that I can take a new quiz.  
+
+
+1pt: Topic Overview uses fragment
+1pt: Question uses fragment
+1pt: Answer uses fragment
+2pts: Two activities
