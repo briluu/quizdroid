@@ -55,32 +55,46 @@ public class AnswerFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_answer, container, false);
 
+        // Grab the current Topic
+        QuizActivity quiz = (QuizActivity) getActivity();
+        Topic currentTopic = quiz.currentTopic;
+        int correctAnswer = currentTopic.getQuestions().get(total - 1).getCorrectAns();
+
+        populateScreen(v, currentTopic, correctAnswer);
+
+        return v;
+    }
+
+    // Populate the screen with text from the user's previous answer and the actual correct answer.
+    // Also sets the text that tells the user how many they have answered correctly so far.
+    // Also sets the text for the button telling the user
+    public void populateScreen(View v, Topic currentTopic, int correctAnswer) {
         // set the text from the user's previous selection
         TextView userAnswer = (TextView) v.findViewById(R.id.userAnswer);
         userAnswer.setText(user_option);
 
+        TextView correctAnswerTV = (TextView) v.findViewById(R.id.correctAnswer);
+        correctAnswerTV.setText(currentTopic.getQuestions().get(total - 1).getAnswers()[correctAnswer]);
+
+        final int numQuestions = currentTopic.getQuestions().size();
+        nextBtn = (Button) v.findViewById(R.id.next);
         // Set the text to tell the user how many questions they have answered correctly
-        if (total >= 5) {
+        if (total >= numQuestions) {
             String answersCorrectText = "You have " + correct + " out of " + total + " correct." +
                     "The quiz is now done! Click 'Finish' to go back to the menu.";
             TextView answersCorrect = (TextView) v.findViewById(R.id.answersCorrect);
             answersCorrect.setText(answersCorrectText);
+            // also set the Button text to "Finish" instead of "Submit"
+            nextBtn.setText(R.string.finish);
         } else {
             String answersCorrectText = "You have " + correct + " out of " + total + " correct.";
             TextView answersCorrect = (TextView) v.findViewById(R.id.answersCorrect);
             answersCorrect.setText(answersCorrectText);
         }
-        nextBtn = (Button) v.findViewById(R.id.next);
-
-        if (total >= 5) {
-            // if quiz is done, set the text of button to "Finish"
-            nextBtn.setText(R.string.finish);
-        }
-
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (total >= 5) {
+                if (total >= numQuestions) {
                     Intent intent = new Intent(getActivity(), MenuActivity.class);
                     startActivity(intent);
                 } else {
@@ -92,7 +106,5 @@ public class AnswerFragment extends Fragment {
             }
         });
 
-        return v;
     }
-
 }

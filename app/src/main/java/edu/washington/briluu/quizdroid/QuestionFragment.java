@@ -4,14 +4,13 @@ package edu.washington.briluu.quizdroid;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +52,13 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_question, container, false);
+
+        // Grab the current Topic
+        QuizActivity quiz = (QuizActivity) getActivity();
+        Topic currentTopic = quiz.currentTopic;
+
+        populateScreen(v, currentTopic, total);
+
         submitBtn = (Button) v.findViewById(R.id.submit);
         total++;
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +67,6 @@ public class QuestionFragment extends Fragment {
                 if (correctAnswer) {
                     correct++;
                 }
-                // for now, loop the quiz so the user will run into this activity 5 times before it ends
                 Fragment answer = AnswerFragment.newInstance(correct, total, user_option);
                 FragmentTransaction tx = getFragmentManager().beginTransaction();
                 tx.replace(R.id.quiz_fragment, answer);
@@ -99,6 +104,23 @@ public class QuestionFragment extends Fragment {
         });
 
         return v;
+    }
+
+    // populate the screen with the question and choices
+    public void populateScreen(View v, Topic currentTopic, int questionNumber) {
+        TextView questionText = (TextView) v.findViewById(R.id.question);
+        Button firstButton = (Button) v.findViewById(R.id.first_choice);
+        Button secButton = (Button) v.findViewById(R.id.second_choice);
+        Button thirdButton = (Button) v.findViewById(R.id.third_choice);
+        Button fourthButton = (Button) v.findViewById(R.id.fourth_choice);
+
+        questionText.setText(currentTopic.getQuestions().get(questionNumber).getQuestion());
+
+        String[] answers = currentTopic.getQuestions().get(questionNumber).getAnswers();
+        firstButton.setText(answers[0]);
+        secButton.setText(answers[1]);
+        thirdButton.setText(answers[2]);
+        fourthButton.setText(answers[3]);
     }
 
 }

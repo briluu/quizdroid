@@ -62,7 +62,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
             android:id="@+id/correctAnswer"
-            android:text="@string/correct_option"
             android:layout_below="@+id/answer_2"
             android:layout_alignLeft="@+id/userAnswer"
             android:layout_alignStart="@+id/userAnswer" />

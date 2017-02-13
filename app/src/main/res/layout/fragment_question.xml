@@ -9,7 +9,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="@string/question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -27,28 +26,24 @@
             android:id="@+id/answers">
 
             <RadioButton
-                android:text="@string/option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/first_choice"
                 android:layout_weight="1"/>
 
             <RadioButton
-                android:text="@string/correct_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/second_choice"
                 android:layout_weight="1"/>
 
             <RadioButton
-                android:text="@string/option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/third_choice"
                 android:layout_weight="1"/>
 
             <RadioButton
-                android:text="@string/option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fourth_choice"

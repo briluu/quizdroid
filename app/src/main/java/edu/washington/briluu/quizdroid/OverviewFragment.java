@@ -2,16 +2,16 @@ package edu.washington.briluu.quizdroid;
 
 
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 
 /**
@@ -48,21 +48,28 @@ public class OverviewFragment extends Fragment {
         Log.d("OverviewFragment", "Topic is: " + topic);
         View v = inflater.inflate(R.layout.fragment_overview, container, false);
 
+        // Grab the activity's repo of topics and current topic
+        QuizActivity quiz = (QuizActivity) getActivity();
+        HashMap<String, Topic> allTopics = quiz.topics;
+        Topic currentTopic = quiz.currentTopic;
+
+        int numQuestions = currentTopic.getQuestions().size();
+        TextView numQuestionsTV = (TextView) v.findViewById(R.id.numQuestions);
+        numQuestionsTV.setText("This quiz will contain " + numQuestions + " questions.");
+
         // Set description text according to corresponding topic
         switch(topic) {
             case "Math":
                 TextView mathDescription = (TextView) v.findViewById(R.id.description);
-                mathDescription.setText(getString(R.string.math_description));
-
-
+                mathDescription.setText(allTopics.get("Math").getLongDescription());
                 break;
             case "Physics":
                 TextView physicsDescription = (TextView) v.findViewById(R.id.description);
-                physicsDescription.setText(getString(R.string.physics_description));
+                physicsDescription.setText(allTopics.get("Physics").getLongDescription());
                 break;
             case "Marvel Super Heroes":
                 TextView marvelDescription = (TextView) v.findViewById(R.id.description);
-                marvelDescription.setText(getString(R.string.marvel_description));
+                marvelDescription.setText(allTopics.get("Marvel Super Heroes").getLongDescription());
                 break;
         }
 
