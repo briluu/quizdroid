@@ -31,6 +31,6 @@
 
 * Refactor the activities in the application to use the TopicRepository. On the topic list page, the title and the short description should come from the similar fields in the Topic object. On the topic overview page, the title and long description should come from the similar fields in the Topic object. The Question object should be similarly easy to match up to the UI.
 
-1pt: QuizApp extends Application, is referenced from manifest, and writes to log
-1pt: QuizApp is a Singleton
-3pts: TopicRepository
+1pt: QuizApp extends Application, is referenced from manifest, and writes to log  
+1pt: QuizApp is a Singleton  
+3pts: TopicRepository  
