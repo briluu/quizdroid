@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 
 /**
@@ -55,17 +56,17 @@ public class OverviewFragment extends Fragment {
 
         int numQuestions = currentTopic.getQuestions().size();
         TextView numQuestionsTV = (TextView) v.findViewById(R.id.numQuestions);
-        numQuestionsTV.setText("This quiz will contain " + numQuestions + " questions.");
+        numQuestionsTV.setText("This quiz will contain " + numQuestions + " question(s).");
 
         // Set description text according to corresponding topic
         switch(topic) {
-            case "Math":
+            case "Mathematics":
                 TextView mathDescription = (TextView) v.findViewById(R.id.description);
-                mathDescription.setText(allTopics.get("Math").getLongDescription());
+                mathDescription.setText(allTopics.get("Mathematics").getLongDescription());
                 break;
-            case "Physics":
+            case "Science!":
                 TextView physicsDescription = (TextView) v.findViewById(R.id.description);
-                physicsDescription.setText(allTopics.get("Physics").getLongDescription());
+                physicsDescription.setText(allTopics.get("Science!").getLongDescription());
                 break;
             case "Marvel Super Heroes":
                 TextView marvelDescription = (TextView) v.findViewById(R.id.description);

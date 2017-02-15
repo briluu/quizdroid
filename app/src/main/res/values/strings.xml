@@ -22,4 +22,5 @@
     <string name="answer_1">You chose the answer:</string>
     <string name="answer_2">The answer is:</string>
 
+    <string name="action_settings">Settings</string>
 </resources>

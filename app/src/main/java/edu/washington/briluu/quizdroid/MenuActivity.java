@@ -3,11 +3,17 @@ package edu.washington.briluu.quizdroid;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -21,8 +27,15 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         QuizApp app = (QuizApp) this.getApplication();
-        topics = app.getRepository().getAllTopics();
+        try {
+            topics = app.getRepository().getAllTopics();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // store all topics in an String array to use with ArrayAdapter to display in View
         final String[] topicTitles = new String[3];
@@ -65,6 +78,25 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.settings:
+                Intent intent = new Intent(MenuActivity.this, PreferencesActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                // this returns false on default
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
 }

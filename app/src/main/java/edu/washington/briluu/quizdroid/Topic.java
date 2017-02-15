@@ -15,7 +15,7 @@ public class Topic {
     private List<Question> questions;
 
     public Topic(String title) {
-        this(title, null, null, new ArrayList<Question>());
+        this(title, "No description.", "No description.", new ArrayList<Question>());
     }
 
     public Topic(String title, String shortDescription, String longDescription, List questions) {

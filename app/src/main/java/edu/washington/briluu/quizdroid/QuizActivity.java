@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class QuizActivity extends AppCompatActivity {
@@ -24,9 +25,13 @@ public class QuizActivity extends AppCompatActivity {
 
         // access topic repo and grab the current topic;
         QuizApp app = (QuizApp) this.getApplication();
-        topics = app.getRepository().getAllTopics();
+        try {
+            topics = app.getRepository().getAllTopics();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         currentTopic = topics.get(topic);
-        Log.d("QuizActivity", "Topic has been set to " + currentTopic);
+        Log.d("QuizActivity", "Topic has been set to " + currentTopic.getTitle());
 
         // create the corresponding topic fragment based on the topic that was clicked
         Fragment overview = OverviewFragment.newInstance(topic);

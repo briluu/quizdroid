@@ -74,7 +74,7 @@ public class AnswerFragment extends Fragment {
         userAnswer.setText(user_option);
 
         TextView correctAnswerTV = (TextView) v.findViewById(R.id.correctAnswer);
-        correctAnswerTV.setText(currentTopic.getQuestions().get(total - 1).getAnswers()[correctAnswer]);
+        correctAnswerTV.setText(currentTopic.getQuestions().get(total - 1).getAnswers()[correctAnswer - 1]);
 
         final int numQuestions = currentTopic.getQuestions().size();
         nextBtn = (Button) v.findViewById(R.id.next);

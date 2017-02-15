@@ -57,6 +57,8 @@ public class QuestionFragment extends Fragment {
         QuizActivity quiz = (QuizActivity) getActivity();
         Topic currentTopic = quiz.currentTopic;
 
+        final int correctOption = currentTopic.getQuestions().get(total).getCorrectAns();
+
         populateScreen(v, currentTopic, total);
 
         submitBtn = (Button) v.findViewById(R.id.submit);
@@ -83,20 +85,20 @@ public class QuestionFragment extends Fragment {
                 // Check which radio button was clicked
                 switch (checkedId) {
                     case R.id.first_choice:
-                        correctAnswer = false;
+                        correctAnswer = isUserCorrect(1, correctOption);
                         user_option = ((RadioButton) v.findViewById(checkedId)).getText().toString();
                         break;
                     case R.id.second_choice:
                         // correct choice!
-                        correctAnswer = true;
+                        correctAnswer = isUserCorrect(2, correctOption);
                         user_option = ((RadioButton) v.findViewById(checkedId)).getText().toString();
                         break;
                     case R.id.third_choice:
-                        correctAnswer = false;
+                        correctAnswer = isUserCorrect(3, correctOption);
                         user_option = ((RadioButton) v.findViewById(checkedId)).getText().toString();
                         break;
                     case R.id.fourth_choice:
-                        correctAnswer = false;
+                        correctAnswer = isUserCorrect(4, correctOption);
                         user_option = ((RadioButton) v.findViewById(checkedId)).getText().toString();
                         break;
                 }
@@ -121,6 +123,15 @@ public class QuestionFragment extends Fragment {
         secButton.setText(answers[1]);
         thirdButton.setText(answers[2]);
         fourthButton.setText(answers[3]);
+    }
+
+    // private method to check if user answer's matches the correct answer
+    private Boolean isUserCorrect(int userAnswer, int correctAnswer) {
+        if (userAnswer == correctAnswer) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
