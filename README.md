@@ -1,4 +1,7 @@
 # quizdroid
+
+A basic Android application that gives a quiz to the user, reading in question and answer data from json and displaying it to the user with fragments.
+
 ## Stories
 ## Part 1
 
