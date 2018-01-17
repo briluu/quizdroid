@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Quizdroid</string>
+    <string name="math_description">Math is the study of topics such as quantity (numbers). In this quiz, there will be math questions from simple algebra to multivariable calculus.</string>
+
+    <string name="physics_description">Physics is the natural science that involves the study of matter and its motion and behavior through space and time, along with related concepts such as energy and force. In this quiz, there will be physics questions from basic mechanics to quantum mechanics.</string>
+
+    <string name="marvel_description">The Marvel Universe contains a vast crew of superheroes and villains. In this quiz, there will be questions that focus on the details of the Marvel Super Heroes only.</string>
+
+    <string name="number_of_questions">This quiz will contain 5 questions.</string>
+
+    <string name="begin">Begin</string>
+
+    <string name="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non est dictum, gravida odio eget, dapibus tellus. Sed elementum, tellus in semper aliquam, lectus mauris vulputate ex, eu euismod enim metus ac diam?</string>
+
+    <string name="correct_option">Correct answer.</string>
+    <string name="option">Lorem ipsum dolor sit amet.</string>
+
+    <string name="next">Next</string>
+    <string name="submit">Submit</string>
+    <string name="finish">Finish</string>
+
+    <string name="answer_1">You chose the answer:</string>
+    <string name="answer_2">The answer is:</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="default_download_url">http://tednewardsandbox.site44.com/questions.json</string>
+    <string name="default_download_interval">3</string>
+
+    <string name="download_button">Save</string>
+</resources>
